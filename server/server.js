@@ -1,26 +1,22 @@
-// FRAMEWORK CONFIGURATION
-const express = require( "express");
-const connectb = require(" •/config/dbConnection");
-const errorhandler = require(" /middleware/errorHandler");
-const cors = require ("cors")
+const express = require("express");
+const connectDb = require("./config/dbConnection.js");
+const errorHandler = require("./middleware/errorhandler");
+const cors = require("cors");
+const dotenv = require("dotenv").config();
 
 connectDb();
 const app = express();
-const port = process.env. PORT || 5000;
-
-app.use (express.json());
+const port = process.env.PORT || 5000;
+app.use(express.json());
 app.use(cors());
-//Error handling middleware
-app .use(errorhandler);
+app.use(errorHandler);
 
 
-//ROUTES BELOW
-app.get('/', (req, res)=>{
-    res.send("working");
-});
+app.get('/', (req, res) => {
+    res.send("Working");
+})
 
-
-//APP CONFIG START
 app.listen(port, () => {
-    console.log('Server running on port http://localhost:${port}');
+    console.log(`Server is running on port http://localhost:${port}`);
+    
 });
