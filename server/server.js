@@ -7,7 +7,7 @@ const cors = require ("cors")
 connectDb();
 const app = express();
 const port = process.env. PORT || 5000;
-
+hukgu
 app.use (express.json());
 app.use(cors());
 //Error handling middleware
